@@ -10,10 +10,24 @@ cd jsse-bytebuddy
 ./gradlew build
 ```
 
-## **Running the Java Agent**
+## 🔽 **Download Prebuilt JAR (Recommended)**
+Instead of building manually, you can download the latest release:
+
+1. **Go to the Releases page:**  
+   👉 [GitHub Releases](https://github.com/Julian-Lengersdorff/JSSE_ByteBuddy/releases)
+2. **Download** `HookAgent.jar`
+3. **Run it using Java (see below)**
+
+
+## 🏃 **Running the Java Agent**
 Attach the **HookingAgent** to the process with **Process ID (PID)**:
 ```bash
 java -cp ./build/classes/java/main org.example.attacher.Attacher <PID> ./build/libs/HookingAgent.jar
+```
+
+Alternatively you can attach the **HookingAgent** directly to your java application.
+```bash
+java -javaagent:HookingAgent.jar -jar <YourApplication.jar>
 ```
 
 If **agent attachment fails**, try running the JSSE client application with:
