@@ -16,7 +16,6 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("net.bytebuddy:byte-buddy:latest.release")
-    implementation("org.openjsse:openjsse:1.1.14")
 }
 
 java {
@@ -59,6 +58,8 @@ tasks {
             )
         }
     }
+
+    build {
+        dependsOn(shadowJar)
+    }
 }
-
-
